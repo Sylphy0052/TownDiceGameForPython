@@ -22,13 +22,41 @@ class FacilityType(Enum):
     AppleOrchard = 14
     FruitAndVegetableMarket = 15
 
-class Facility:
-    def __init__(self, facility_type):
-        num = 0
-        self.facility_type = facility_type
+class Color(Enum):
+    Red = 1
+    Green = 2
+    Blue = 3
+    Purple = 4
 
-    def play(self):
-        pass
+class Facility:
+    def __init__(self, name, pip, cost, color):
+        self.name = name
+        self.pip = pip
+        self.cost = cost
+        self.color = color
 
     def get_name(self):
-        return self.facility_type.name
+        return self.name
+
+    def get_pip(self):
+        return self.pip
+
+    def get_cost(self):
+        return self.cost
+
+    def get_color(self):
+        return self.color
+
+class WheatField(Facility):
+    def __init__(self):
+        super().__init__("Wheat Field", [1], 1, Color.Blue)
+
+    def play(self):
+        return 1
+
+class Bakery(Facility):
+    def __init__(self):
+        super().__init__("Bakery", [2, 3], 1, Color.Green)
+
+    def play(self):
+        return 1
