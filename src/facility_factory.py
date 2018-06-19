@@ -1,40 +1,40 @@
 from src.facility import *
 
 class FacilityFactory:
-    def __init__(self):
-        pass
+    def __init__(self, player):
+        self.player = player
 
     def create_facility(self, facility_type):
         if facility_type is FacilityType.WheatField:
-            return WheatField()
+            return WheatField(self.player)
         elif facility_type is FacilityType.Ranch:
-            return Ranch()
+            return Ranch(self.player)
         elif facility_type is FacilityType.Bakery:
-            return Bakery()
+            return Bakery(self.player)
         elif facility_type is FacilityType.Cafe:
-            return Cafe()
+            return Cafe(self.player)
         elif facility_type is FacilityType.ConvenienceStore:
-            return ConvenienceStore()
+            return ConvenienceStore(self.player)
         elif facility_type is FacilityType.Forest:
-            return Forest()
+            return Forest(self.player)
         elif facility_type is FacilityType.Stadium:
-            return Stadium()
+            return Stadium(self.player)
         elif facility_type is FacilityType.TVStation:
-            return TVStation()
+            return TVStation(self.player)
         elif facility_type is FacilityType.BusinessCenter:
-            return BusinessCenter()
+            return BusinessCenter(self.player)
         elif facility_type is FacilityType.CheeseFactory:
-            return CheeseFactory()
+            return CheeseFactory(self.player)
         elif facility_type is FacilityType.FurnitureFactory:
-            return FurnitureFactory()
+            return FurnitureFactory(self.player)
         elif facility_type is FacilityType.Mine:
-            return Mine()
+            return Mine(self.player)
         elif facility_type is FacilityType.FamilyRestaurant:
-            return FamilyRestaurant()
+            return FamilyRestaurant(self.player)
         elif facility_type is FacilityType.AppleOrchard:
-            return AppleOrchard()
+            return AppleOrchard(self.player)
         elif facility_type is FacilityType.FruitAndVegetableMarket:
-            return FruitAndVegetableMarket()
+            return FruitAndVegetableMarket(self.player)
 
     def get_facility_list(self):
         return [
