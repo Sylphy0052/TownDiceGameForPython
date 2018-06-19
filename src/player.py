@@ -11,7 +11,7 @@ import random
 '''
 class Player:
     def __init__(self, num):
-        self.ff = FacilityFactory()
+        self.ff = FacilityFactory(self)
         self.num = num
         # 初期所持金
         self.money = 3
