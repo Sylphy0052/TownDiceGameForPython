@@ -89,6 +89,27 @@ class Forest(Facility):
     def play(self):
         return 1
 
+class Stadium(Facility):
+    def __init__(self):
+        super().__init__("Stadium", [6], 6, Color.Purple)
+
+    def play(self):
+        return 1
+
+class TVStation(Facility):
+    def __init__(self):
+        super().__init__("TV Station", [6], 7, Color.Purple)
+
+    def play(self):
+        return 1
+
+class BusinessCenter(Facility):
+    def __init__(self):
+        super().__init__("Business Center", [6], 8, Color.Purple)
+
+    def play(self):
+        return 1
+
 class CheeseFactory(Facility):
     def __init__(self):
         super().__init__("Cheese Factory", [7], 5, Color.Green)
