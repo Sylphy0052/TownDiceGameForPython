@@ -1,4 +1,4 @@
-from src.facility import Facility, FacilityType
+from src.facility import *
 from src.landmark import Landmark, LandmarkType
 from src.facility_factory import FacilityFactory
 
@@ -27,6 +27,50 @@ class Player:
 
         # self.print_having_facility()
         # self.print_having_money()
+
+    def purchase(self):
+        if self.money == 0:
+            print("You got 1 coin!")
+            self.money += 1
+        else:
+            print("You have {} coins!".format(self.money))
+        facility_list = self.ff.get_facility_list()
+        number = 1
+        print("0: None")
+        for fl in facility_list:
+            if self.money < fl[1]:
+                pass
+            else:
+                print("{}: {} - {}".format(number, fl[0], fl[1]))
+            number += 1
+
+        input_num = input("Select number what you want facility! > ")
+        while(True):
+            if input_num == "":
+                input_num = input("Select number what you want facility! > ")
+            else:
+                input_num = int(input_num)
+                if self.money < facility_list[input_num - 1][1]:
+                    print("You can't buy the facility...")
+                    input_num = input("Select number what you want facility! > ")
+                else:
+                    break
+        if not input_num == 0:
+            self.add_facility(FacilityType(input_num))
+        else:
+            print("You didn't buy anything...")
+
+    def add_facility(self, facility_type):
+        purchased_facility = self.ff.create_facility(facility_type)
+        self.money -= purchased_facility.get_cost()
+        if purchased_facility.get_color() is Color.Blue:
+            self.blue_facility.append(purchased_facility)
+        elif purchased_facility.get_color() is Color.Green:
+            self.green_facility.append(purchased_facility)
+        elif purchased_facility.get_color() is Color.Red:
+            self.red_facility.append(purchased_facility)
+        elif purchased_facility.get_color() is Color.Purple:
+            self.purple_facility.append(purchased_facility)
 
     def init_facility(self):
         self.blue_facility.append(self.ff.create_facility(FacilityType.WheatField))
@@ -105,3 +149,6 @@ class Player:
             print(l.get_name())
 
         print("-----")
+
+    def get_money(self):
+        return self.money
