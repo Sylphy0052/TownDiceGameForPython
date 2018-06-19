@@ -4,6 +4,12 @@ from src.player import Player
 class GameManager:
     def __init__(self):
         self.player_num = int(input("How many player? > "))
+        while(True):
+            if self.player_num < 1 or self.player_num > 4:
+                print("Player number is from 1 to 4 !")
+                self.player_num = int(input("How many player? > "))
+            else:
+                break
         self.player = []
         for i in range(self.player_num):
             self.player.append(Player(i + 1))
@@ -40,5 +46,13 @@ class GameManager:
 
         # 紫施設
 
-        for p in self.player:
-            p.print_having_money()
+        # for p in self.player:
+        #     p.print_having_money()
+        #     p.print_having_facility()
+
+        # 購入フェーズ
+        print("Player{} Purchase Phase!".format(player_num + 1))
+        main_player.purchase()
+
+        main_player.print_having_money()
+        main_player.print_having_facility()
