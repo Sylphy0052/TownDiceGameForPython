@@ -1,4 +1,5 @@
 from src.facility import *
+from src.landmark import *
 
 class FacilityFactory:
     def __init__(self, player):
@@ -36,21 +37,12 @@ class FacilityFactory:
         elif facility_type is FacilityType.FruitAndVegetableMarket:
             return FruitAndVegetableMarket(self.player)
 
-    def get_facility_list(self):
-        return [
-            ["Wheat Field", 1],
-            ["Ranch", 1],
-            ["Bakery", 1],
-            ["Cafe", 2],
-            ["Convenience Store", 2],
-            ["Forest", 3],
-            ["Stadium", 6],
-            ["TV Station", 7],
-            ["Business Center", 8],
-            ["Cheese Factory", 5],
-            ["Furniture Factory", 3],
-            ["Mine", 6],
-            ["Family Restaurant", 3],
-            ["Apple Orchard", 3],
-            ["Fruit and Vegetable Market", 2],
-        ]
+    def create_landmark(self, landmark_type):
+        if landmark_type is LandmarkType.TrainStation:
+            return TrainStation(self.player)
+        elif landmark_type is LandmarkType.ShoppingMall:
+            return ShoppingMall(self.player)
+        elif landmark_type is LandmarkType.AmusementPark:
+            return AmusementPark(self.player)
+        elif landmark_type is LandmarkType.RadioTower:
+            return RadioTower(self.player)

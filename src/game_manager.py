@@ -45,6 +45,7 @@ class GameManager:
             current_player.play_blue_facility(dice)
 
         # 紫施設
+        main_player.play_purple_facility(dice)
 
         # for p in self.player:
         #     p.print_having_money()
@@ -52,7 +53,7 @@ class GameManager:
 
         # 購入フェーズ
         print("Player{} Purchase Phase!".format(player_num + 1))
-        main_player.purchase()
+        main_player.purchase(self.player)
 
         main_player.print_having_money()
         main_player.print_having_facility()

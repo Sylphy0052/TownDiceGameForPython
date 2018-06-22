@@ -4,6 +4,11 @@ from enum import Enum
 施設カード
 play:効果を発揮
 '''
+# 
+# PURPLE_FACILITY_NUMBER = 3
+#
+# def get_purple_facility_number():
+#     return PURPLE_FACILITY_NUMBER
 
 class FacilityType(Enum):
     WheatField = 1
@@ -21,6 +26,11 @@ class FacilityType(Enum):
     FamilyRestaurant = 13
     AppleOrchard = 14
     FruitAndVegetableMarket = 15
+
+class PurpleFacilityType(Enum):
+    Stadium = 1
+    TVStation = 2
+    BusinessCenter = 3
 
 class Color(Enum):
     Red = 1
