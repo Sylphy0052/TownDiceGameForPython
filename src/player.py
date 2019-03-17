@@ -14,7 +14,7 @@ class Player:
         self.ff = FacilityFactory(self)
         self.num = num
         # 初期所持金
-        self.money = 100
+        self.money = 3
         # 初期施設
         self.green_facility = []
         self.red_facility = []
